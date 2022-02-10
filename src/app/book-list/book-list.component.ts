@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {appState} from "../store/app.state";
 import {Store} from "@ngrx/store";
-import { Book } from '../models/book.model'
-import {BookInBasket} from "../models/basket.model";
+import { Book } from '../shared/book.model'
+import {BookInBasket} from "../shared/basket.model";
 import {AddToBasket} from "../store/actions/book.actions";
 
 @Component({
@@ -22,12 +22,18 @@ export class BookListComponent implements OnInit {
     this.books = Book.getBooks;
   }
 
+  getBookInfo(book: Book){
+    window.alert(book.description + '\n'+ '\n'
+      + 'Category: ' + book.category + '\n'
+      + 'Type: ' + book.type)
+
+  }
+
   addToCart(selectedBook: Book) : void {
     const newBookInBasket = {
       book: selectedBook
     } as BookInBasket;
 
-    this.store.dispatch(new AddToBasket(newBookInBasket))
-    console.log(newBookInBasket)
+    this.store.dispatch(new AddToBasket(newBookInBasket));
   }
 }

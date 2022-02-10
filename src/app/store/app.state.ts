@@ -1,6 +1,6 @@
-import {Book} from '../models/book.model'
+import {Book} from '../shared/book.model'
 
 
 export interface appState {
-  readonly book: Book[];
+  book: Book[];
 }

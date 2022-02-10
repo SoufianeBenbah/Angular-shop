@@ -9,7 +9,9 @@ import { ContactComponent } from "./contact/contact.component";
 import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BasketComponent } from './basket/basket.component';
-import { NavbarComponent } from './navbar/navbar.component'
+import { NavbarComponent } from './navbar/navbar.component';
+import { UsersComponent } from './users/users.component'
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { NavbarComponent } from './navbar/navbar.component'
     BasketComponent,
     NavbarComponent,
     ContactComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     StoreModule.forRoot({book: bookReducer} as ActionReducerMap<any,any> ),
   ],
   providers: [],

@@ -1,6 +1,7 @@
 import {delay, of, tap} from "rxjs";
 import products from "../products.json";
 import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 export interface product{
   name: string
@@ -15,17 +16,8 @@ export interface product{
 )
 export class BasketService{
 
-
-  getBasket(active?: boolean) {
-    return of([
-      ...products
-        .map((product: any) => ({ ...product }))
-        .filter((product: { inCart: boolean; }) => active === undefined ?
-          true : product.inCart === active )
-    ]).pipe(
-      tap(() => console.log('Fetching data started')),
-      delay(1000),
-      tap(() => console.log('Fetching data finished')),
-    );
+  constructor(private http: HttpClient) {
   }
+
+
 }

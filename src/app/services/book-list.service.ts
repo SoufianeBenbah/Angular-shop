@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import products from '../products.json'
-import {Book} from "../models/book.model";
+import {Book} from "../shared/book.model";
 
 
 @Injectable(

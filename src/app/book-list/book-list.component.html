@@ -8,13 +8,13 @@
       <th>Author</th>
       <th>Price</th>
       <th>Buy</th>
-
     </tr>
     </thead>
-    <tbody  >
-    <tr *ngFor="let book of books">
-      <td><img alt="" src="{{book.img}}" style="width: 70px; height: 80px"></td>
-      <td>{{book.name}}</td>
+
+    <tbody  *ngFor="let book of books">
+    <tr>
+      <td><a (click)="getBookInfo(book)"><img alt="" src="{{book.img}}" style="width: 70px; height: 80px"></a></td>
+      <td><a (click)="getBookInfo(book)">{{book.name}}</a></td>
       <td>{{book.author}}</td>
       <td>{{ book.price+"€" }}</td>
       <td><button class="btn btn-success" (click)="addToCart(book)">Add to cart</button></td>
